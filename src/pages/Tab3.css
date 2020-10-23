@@ -1,0 +1,98 @@
+ion-content{
+    --background: var(--ion-color-secondary)!important;
+}
+
+/* Enlève la bordure haut et bas de couleur secondary */
+.list-md{
+    background: unset;
+}
+
+ion-title{
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-weight: bold;
+}
+
+ion-radio-group{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+ion-item ion-item.item-textarea, ion-item ion-item.item-textarea ion-textarea{
+    width: 100%;
+}
+
+ion-item ion-item.item-textarea ion-textarea{
+    padding: 0 1% 0 1%;
+    width: 100%;
+    border: white solid .5px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+ion-list ion-item ion-button{
+    margin: auto;
+}
+
+ion-list.questionnaire{
+    overflow: auto;
+    height: 100%;
+}
+
+ion-input{
+    --placeholder-color:#000000!important;
+    --placeholder-font-weight:normal!important
+}
+
+ion-modal ion-button{
+    width: 60px;
+    height: 60px;
+}
+
+ion-modal.errors ion-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+ion-icon.closeModal{
+    font-size: 4rem;
+}
+
+ion-label{
+    overflow: visible!important;
+}
+
+ion-label.question{
+    max-width: unset!important;
+    width: 130%!important;
+    font-size: 1.5rem!important;
+    padding-bottom: 1%!important;
+}
+
+ion-label.reponse{
+    font-size: 1.1rem!important;
+}
+
+ion-label.commentaire{
+    font-size: 1.2rem!important;
+}
+
+ion-modal.errors{
+    --background: #428cff;
+}
+
+ion-modal.errors div.modal-wrapper{
+    position: relative;
+    top: 45%;
+    height: 50px;
+    width: 80%;
+}
+
+ion-input.emptyField{
+    --placeholder-color: var(--ion-color-danger)!important;
+    --placeholder-font-weight: bold!important
+}
+
+ion-radio.emptyField{
+    --color: var(--ion-color-danger)!important
+}

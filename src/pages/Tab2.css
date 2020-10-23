@@ -1,0 +1,25 @@
+/* Gestion de la carte */
+ion-item.map{
+    --background: var(--ion-color-secondary)!important;
+    padding: 5px 0 5px 0;
+    display: flex!important;
+    justify-content: center!important;
+    text-align: center!important;
+}
+
+svg{
+    margin: auto;
+}
+
+/* Label */
+ion-label{
+    min-width: 202px!important;
+    max-width: 202px!important;
+}
+/* Gestion des noms des points */
+text{
+    font-size: 1.2rem;
+    max-width: 100px!important;
+}
+
+/* Gestion des demandes de points */

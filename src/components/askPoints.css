@@ -1,0 +1,9 @@
+ion-select{
+    background: var(--ion-color-primary)!important;
+    color : white!important
+}
+
+ion-item.searchPoints, ion-list.row{
+    --background: var(--ion-color-primary)!important;
+    background: var(--ion-color-primary)!important;
+}

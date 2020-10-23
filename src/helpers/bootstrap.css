@@ -1,0 +1,5 @@
+.col-12, .container-fluid{
+    margin: 0!important;
+    padding: 0!important;
+    flex-basis: 0%!important;
+}

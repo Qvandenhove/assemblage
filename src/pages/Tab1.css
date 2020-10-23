@@ -1,0 +1,43 @@
+/* Cartes de formation */
+ion-card{
+    --background: var(--ion-color-primary);
+}
+
+ion-card-title{
+    --color: white;
+    text-align: center;
+}
+
+ion-card-content{
+    color: white!important;
+}
+
+ion-item, ion-card-content{
+    background: var(--ion-color-primary);
+    --background: var(--ion-color-primary);
+}
+
+/* une carte de formation */
+
+ion-card.formation, ion-card.formation ion-card-content{
+    --background: var(--ion-color-secondary)!important;
+    background: var(--ion-color-secondary)!important
+}
+
+ion-card-header.formation{
+    height: 75px;
+}
+
+ion-slide, ion-card.formation{
+    height: 150px!important;
+}
+
+/* Pager */
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: var(--ion-color-tertiary)
+}
+
+ion-slides{
+    height: 200px;
+}

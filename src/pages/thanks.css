@@ -1,0 +1,22 @@
+ion-card ion-card-title{
+    --color: #ffffff
+}
+
+ion-card-title{
+    text-align: center;
+}
+
+ion-card-content.BackHome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ion-card-content.BackHome ion-item{
+    width: 60%;
+}
+
+ion-checkbox{
+    --background: var(--ion-color-secondary)
+}
