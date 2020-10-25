@@ -1,6 +1,7 @@
 import firebase from "firebase"
 import {Chart} from 'chart.js'
 import { AStarFinder, Grid } from 'pathfinding'
+import { HTTP } from '@ionic-native/http'
 
 
 var firebaseConfig = {
@@ -110,6 +111,16 @@ const helpers = {
       });
       
       return formations
+    },
+    // Contact
+    async sendMail(datas:any){
+      HTTP.setDataSerializer("json")
+      console.log(datas)
+      HTTP.sendRequest("http://10.162.130.157/Projets/mailer/PHPMailer/examples/gmail.php", {method:"post", data: datas}).then((response) => {
+      console.log(response.status)
+      console.log(response.data)
+      // console.log("request sent")
+      }).catch((err) => {console.log(err.error)})
     }
 }
 

@@ -82,6 +82,10 @@ http://ionicframework.com/docs/theming/ */
    * -------------------------------------------
    */
 
+   ion-tab-button{
+    width: 20%!important;  
+  }
+
   body {
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
