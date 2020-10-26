@@ -1,12 +1,12 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonLabel, IonList, IonToast, IonIcon } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonLabel, IonList, IonToast, IonIcon, IonModal } from '@ionic/react';
 import React, { useState } from 'react';
 import DemandeNote from '../components/demandeNote'
 import helpers from '../helpers/helpers'
-// import './Tab3.css';
-import { closeCircleOutline } from 'ionicons/icons';
+import './Tab3.css';
 
 const Tab3: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [thankModal, setThanksModal] = useState(false)
   const checkForm = (form: NodeList) => {
     let datas: any = {}
     let errors: any = []
@@ -75,6 +75,12 @@ const Tab3: React.FC = () => {
           </IonItem>
         </IonList>
         <IonToast message="Merci de remplir tout les champs" duration={2000} onDidDismiss={() => {setIsOpen(false)}} cssClass="errors" isOpen={isOpen} />
+        <IonModal showBackdrop={false} cssClass="thanks" isOpen={thankModal}>
+          <IonItem lines="none">
+            <IonItem lines="none">Merci d'avoir rempli ce formulaire. Vos réponses on été soumises. Bonne journée à vous</IonItem>
+            <IonButton className="centered" onClick={() => {setThanksModal(false)}}>Fermer</IonButton>
+          </IonItem>
+        </IonModal>
       </IonContent>
     </IonPage>
   );

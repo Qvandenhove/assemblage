@@ -96,3 +96,9 @@ ion-input.emptyField{
 ion-radio.emptyField{
     --color: var(--ion-color-danger)!important
 }
+
+ion-modal.thanks div.modal-wrapper{
+    height: 60px;
+    position: relative;
+    bottom: -40%;
+}
