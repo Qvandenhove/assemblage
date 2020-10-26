@@ -1,6 +1,6 @@
-/* Cartes de formation */
-ion-card{
-    --background: var(--ion-color-primary);
+/* Carte de formations */
+ion-card.formations{
+    --background: transparent;
 }
 
 ion-card-title{
@@ -12,16 +12,17 @@ ion-card-content{
     color: white!important;
 }
 
-ion-item, ion-card-content{
-    background: var(--ion-color-primary);
-    --background: var(--ion-color-primary);
+ion-card.formations{
+    box-shadow: none;
 }
 
 /* une carte de formation */
 
 ion-card.formation, ion-card.formation ion-card-content{
     --background: var(--ion-color-secondary)!important;
-    background: var(--ion-color-secondary)!important
+    background: var(--ion-color-secondary)!important;
+    max-width: 200px;
+    min-width: 200px;
 }
 
 ion-card-header.formation{

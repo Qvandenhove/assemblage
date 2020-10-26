@@ -1,21 +1,24 @@
 import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTextarea, IonTitle, IonToast, IonToolbar } from '@ionic/react'
-import './Tab4.css'
+// import './Tab4.css'
 import React, { useState } from 'react'
 import helpers from '../helpers/helpers'
 
 const Tab4:React.FC = () => {
     const [formError, setFormError] = useState(false)
+    const [thanks, setThanks] = useState(false)
     const submit = () => {
         let inputs = document.querySelectorAll("ion-input, ion-textarea")
         let errors:any[] = []
         let datas:any = {}
         inputs.forEach((input:any) => {
+          console.log(input.value)
             if (input.value ===""){
                 errors.push(input)
             }else{
                 datas[input.getAttribute("name")] = input.value
             }
         })
+        console.log(errors)
         if (errors.length > 0) {
             setFormError(true)
             errors.forEach((errorField: any) => {
@@ -42,6 +45,7 @@ const Tab4:React.FC = () => {
       
             })
           } else {
+            setThanks(true)
             helpers.sendMail(datas)
           }
     }
@@ -82,7 +86,8 @@ const Tab4:React.FC = () => {
                     </IonItem>
             </IonList>
             <IonButton onClick={submit} type="submit" className="centered">Envoyer</IonButton>
-            <IonToast message="Merci de remplir tout les champs" duration={2000} isOpen={formError} onDidDismiss={() => {setFormError(false)}} />
+            <IonToast color="danger" message="Merci de remplir tout les champs" duration={2000} isOpen={formError} onDidDismiss={() => {setFormError(false)}} />
+            <IonToast color="success" message="Votre message à été envoyé" duration={2000} isOpen={thanks} onDidDismiss={() => {setThanks(false)}} />
           </IonContent>
         </IonPage>
       );

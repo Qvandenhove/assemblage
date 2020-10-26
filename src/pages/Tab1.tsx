@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonItem, IonList, IonPage, IonSlide, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonPage, IonSlide, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
 import './Tab1.css'
+import './background.css'
 import helpers from '../helpers/helpers'
 import Formation from '../components/formation'
 
 const Tab1: React.FC = () => {
   const [formations, setFormations] = useState([])
   useEffect(() => {
-    console.log("effect")
     helpers.getFormations().then((listeFormations:any) => {
       setFormations(listeFormations)
     })
   }, [])
-
+  console.log(window.innerWidth)
+  console.log()
   return (
-    <IonPage>
+    <IonPage className="Content">
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar >
           <IonTitle>Liste des formations</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
+      <IonContent className="Content" fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Liste des formations disponibles</IonTitle>

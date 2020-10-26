@@ -1,0 +1,13 @@
+ion-content.Content{
+    --background: url('../assets/imgs/moniteur.jpg')!important;
+    background-size: contain!important;
+    background-repeat: no-repeat;
+}
+
+@media all and (min-width: 1000px) and (max-width: 1500px){
+    ion-content.Content{
+        --background: url('../assets/imgs/tablette.jpg')!important;
+        background-size: contain!important;
+        background-repeat: no-repeat;
+    }
+}

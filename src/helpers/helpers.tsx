@@ -116,10 +116,8 @@ const helpers = {
     async sendMail(datas:any){
       HTTP.setDataSerializer("json")
       console.log(datas)
-      HTTP.sendRequest("http://10.162.130.157/Projets/mailer/PHPMailer/examples/gmail.php", {method:"post", data: datas}).then((response) => {
-      console.log(response.status)
-      console.log(response.data)
-      // console.log("request sent")
+      HTTP.sendRequest("http://10.162.130.97:80/index.php", {method:"post", data: datas}).then((response) => {
+
       }).catch((err) => {console.log(err.error)})
     }
 }

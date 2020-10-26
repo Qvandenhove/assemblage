@@ -2,7 +2,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInp
 import React, { useState } from 'react';
 import DemandeNote from '../components/demandeNote'
 import helpers from '../helpers/helpers'
-import './Tab3.css';
+// import './Tab3.css';
 import { closeCircleOutline } from 'ionicons/icons';
 
 const Tab3: React.FC = () => {
