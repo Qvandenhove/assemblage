@@ -11,11 +11,10 @@ svg{
     margin: auto;
 }
 
-/* Label */
-ion-label{
-    min-width: 202px!important;
-    max-width: 202px!important;
+rect[fill=white]{
+    fill: var(--ion-color-primary)!important;
 }
+
 /* Gestion des noms des points */
 text{
     font-size: 1.2rem;
@@ -23,3 +22,11 @@ text{
 }
 
 /* Gestion des demandes de points */
+ion-select{
+    max-width: 100%!important;
+    min-width: 100%!important;
+}
+
+ion-button {
+    width: 100%;
+}

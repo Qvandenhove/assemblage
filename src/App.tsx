@@ -7,8 +7,10 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs
+  IonTabs,
+  isPlatform
 } from '@ionic/react';
+import { ScreenOrientation } from '@ionic-native/screen-orientation'
 import { IonReactRouter } from '@ionic/react-router';
 import { school, search, happy, mail } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
@@ -34,8 +36,13 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { platform } from 'chart.js';
 
-const App: React.FC = () => (
+const App: React.FC = () => {
+  if (isPlatform('android')){
+    ScreenOrientation.lock(ScreenOrientation.ORIENTATIONS.LANDSCAPE)
+  }
+  return (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
@@ -67,6 +74,6 @@ const App: React.FC = () => (
       </IonTabs>
     </IonReactRouter>
   </IonApp>
-);
+);}
 
 export default App;

@@ -1,4 +1,4 @@
-import { IonButton, IonContent, IonHeader, IonItem, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonItem, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import React, { Fragment, useState } from 'react';
 import './Tab2.css';
 import { Grid } from 'pathfinding'
@@ -17,7 +17,7 @@ function transpose(array:any) {
 const Tab2: React.FC = () => {
   let line_key = 0
   const longueur_canvas:number = window.innerWidth < 720 ? window.innerWidth * (8/10) : Math.round(window.innerWidth * (2/3)) // longueur de la grille sur l'écran
-  const hauteur_canvas:number = window.innerHeight * (8/10) // hauteur de la grille sur l'écran
+  const hauteur_canvas:number = window.innerHeight * 0.75 // hauteur de la grille sur l'écran
   const margin = window.innerWidth >= 720 ? (window.innerWidth - longueur_canvas)/2 : (window.innerWidth - longueur_canvas)/4 // Écart à réaliser pour centrer sur lécran
   const hauteur:number = 100 // Nombre de pixel en hateur de la grille
   const longueur:number = 100 // Nombre de pixel en longueur de la grille
@@ -120,10 +120,14 @@ const Tab2: React.FC = () => {
           </svg>
         </IonItem>
         <IonItem lines="none" className="centered searchPoints">
-          <IonList lines="none" className="row col-12 justify-content-center">
-            <AskPoints waypoints={Waypoints} setFromPoint={setFromPoint} setToPoint={setToPoint} />
-            <IonButton className="col-xl-2" onClick={() => {goToWayPoint(fromPoint)}}>Chercher</IonButton>
-          </IonList>
+          <IonGrid>
+            <IonRow class="ion-align-items-center ion-justify-content-between">
+          <AskPoints waypoints={Waypoints} setFromPoint={setFromPoint} setToPoint={setToPoint} />
+          <IonCol size="2" >
+            <IonButton onClick={() => {goToWayPoint(fromPoint)}}>Chercher</IonButton>
+          </IonCol>
+          </IonRow>
+        </IonGrid>
         </IonItem>
       </IonContent>
     </IonPage>

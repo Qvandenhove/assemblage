@@ -12,8 +12,6 @@ const Tab1: React.FC = () => {
       setFormations(listeFormations)
     })
   }, [])
-  console.log(window.innerWidth)
-  console.log()
   return (
     <IonPage className="Content">
       <IonHeader>
