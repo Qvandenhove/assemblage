@@ -36,7 +36,6 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { platform } from 'chart.js';
 
 const App: React.FC = () => {
   if (isPlatform('android')){

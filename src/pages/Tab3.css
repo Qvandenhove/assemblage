@@ -3,22 +3,21 @@ ion-content{
 }
 
 /* Enlève la bordure haut et bas de couleur secondary */
-.list-md{
-    background: unset;
-}
-
 ion-title{
     text-align: center;
-    font-family: 'Karla', sans-serif;
     font-weight: bold;
 }
 
+/* Radio group */
 ion-radio-group{
+    display: inline-block;
+    height: 200px;
     width: 100%;
     margin-top: 1rem;
 }
 
-ion-item ion-item.item-textarea, ion-item ion-item.item-textarea ion-textarea{
+/* Commentaires */
+/* ion-item ion-item.item-textarea, ion-item ion-item.item-textarea ion-textarea{
     width: 100%;
 }
 
@@ -28,22 +27,89 @@ ion-item ion-item.item-textarea ion-textarea{
     border: white solid .5px;
     border-radius: 5px;
     margin-bottom: 50px;
+} */
+
+/* Questionnaire */
+
+.questionnaire{
+    margin-top: 1%;
 }
 
-ion-list ion-item ion-button{
-    margin: auto;
+div.swiper-slide{
+    border-radius: 5%;
 }
 
-ion-list.questionnaire{
-    overflow: auto;
+/* Option choisie */
+ion-item.item-radio-checked{
+    --ion-color-base: transparent!important;
+    background: var(--ion-color-primary)!important;
+}
+
+ion-radio.radio-checked{
+    --color-checked: var(--ion-color-secondary);
+}
+
+ion-item.item-radio-checked ion-label ion-icon.feedback{
+    color: var(--ion-color-secondary);
+}
+
+/* Une question */
+ion-label.question{
+    max-width: unset!important;
+    width: 100%!important;
+    font-size: 4rem!important;
+    padding-bottom: 1%!important;
+}
+
+ion-row.question{
+    height: 80%!important;
+}
+
+ion-grid.slide{
     height: 100%;
 }
 
-ion-input{
-    --placeholder-color:#000000!important;
-    --placeholder-font-weight:normal!important
+.swiper-container{
+    width: 80%;
+    height: 90%;
 }
 
+.swiper-slide{
+    background: var(--ion-color-primary)
+}
+
+/* Les avis de la question */
+
+ion-col.note{
+    padding: 0;
+    height: 100%;
+}
+
+ion-row.notes{
+    position: fixed;
+    width: 100%;
+    bottom: 10%;
+    left: 0;
+}
+
+ion-icon.feedback{
+    color: var(--ion-color-primary);
+    font-size: 50px!important;
+}
+
+ion-icon.back{
+    font-size: 30px;
+}
+
+ion-button.back{
+    position: fixed;
+    bottom: 1%;
+    left: 1%;
+    height: 40px;
+    width: 80px;
+}
+
+/* Modal de remerciement */
 ion-modal ion-button{
     width: 60px;
     height: 60px;
@@ -58,47 +124,17 @@ ion-icon.closeModal{
     font-size: 4rem;
 }
 
+/* Labels */
 ion-label{
     overflow: visible!important;
 }
 
-ion-label.question{
-    max-width: unset!important;
-    width: 130%!important;
-    font-size: 1.5rem!important;
-    padding-bottom: 1%!important;
-}
-
 ion-label.reponse{
     font-size: 1.1rem!important;
+    text-align: center;
 }
 
 ion-label.commentaire{
     font-size: 1.2rem!important;
 }
 
-ion-modal.errors{
-    --background: #428cff;
-}
-
-ion-modal.errors div.modal-wrapper{
-    position: relative;
-    top: 45%;
-    height: 50px;
-    width: 80%;
-}
-
-ion-input.emptyField{
-    --placeholder-color: var(--ion-color-danger)!important;
-    --placeholder-font-weight: bold!important
-}
-
-ion-radio.emptyField{
-    --color: var(--ion-color-danger)!important
-}
-
-ion-modal.thanks div.modal-wrapper{
-    height: 60px;
-    position: relative;
-    bottom: -40%;
-}

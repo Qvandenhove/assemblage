@@ -1,5 +1,5 @@
-import { IonItem, IonCard, IonCardHeader, IonCardContent } from '@ionic/react'
-import React, { Fragment } from 'react'
+import { IonCard, IonCardHeader, IonCardContent } from '@ionic/react'
+import React from 'react'
 
 
 interface FormationProps{

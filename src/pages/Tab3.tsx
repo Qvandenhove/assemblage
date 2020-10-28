@@ -1,51 +1,32 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonInput, IonItem, IonLabel, IonList, IonToast, IonIcon, IonModal } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonItem, IonToast, IonModal, IonSlides, IonIcon, IonGrid, IonRow, IonCol, IonImg, IonInput, IonLabel } from '@ionic/react';
+import SwiperCore, { Navigation, Pagination, EffectCube } from 'swiper';
 import React, { useState } from 'react';
+import { arrowBack } from "ionicons/icons"
 import DemandeNote from '../components/demandeNote'
 import helpers from '../helpers/helpers'
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/effect-cube/effect-cube.scss'
 import './Tab3.css';
+import SwiperTest from '../components/testSwiper';
+import TestSwiper from '../components/testSwiper';
 
 const Tab3: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [thankModal, setThanksModal] = useState(false)
-  const checkForm = (form: NodeList) => {
-    let datas: any = {}
-    let errors: any = []
-    form.forEach((input: any) => {
-      if ((input.value === "" || input.value === undefined) && (input.classList.contains("sc-ion-textarea-md-h") === false)) {
-        errors.push(input)
-      } else {
-        datas[input.name] = input.value
-      }
-    })
-    if (errors.length > 0) {
-      setIsOpen(true)
-      errors.forEach((errorField: any) => {
-        if (errorField.getAttribute("placeholder") !== null) {
-          errorField.classList.add("emptyField");
-          errorField.addEventListener("ionChange", () => {
-            errorField.classList.remove("emptyField");
-          })
-        } else {
-
-          for (let child of errorField.children) {
-            for (let elmt of child.children) {
-              elmt.classList.add("emptyField")
-            }
-          }
-          errorField.addEventListener("ionChange", () => {
-            for (let child of errorField.children) {
-              for (let elmt of child.children) {
-                elmt.classList.remove("emptyField")
-              }
-            }
-          })
-        }
-
-      })
-    } else {
-      helpers.exportDatas(datas)
+  SwiperCore.use([Navigation, Pagination, EffectCube])
+  const slideOpts = {
+    slidesPerView: 1,
+    allowTouchMove:false,
+    cubeEffect : {
+      shadow: false,
+      slideShadow: true
     }
   }
+  //  statut d'ouverture des modals et taosts
+  const [isOpen, setIsOpen] = useState(false)
+  const [thankModal, setThanksModal] = useState(false)
+  // Vérification du formulaire
+  document.addEventListener("deviceready", () => {console.log("ready")})
   return (
     <IonPage>
       <IonHeader>
@@ -54,26 +35,27 @@ const Tab3: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonList className="questionnaire">
-          <DemandeNote nom="accueil" label="Que pensez vous de la qualité de l'accueil?" />
-          <DemandeNote nom="choix" label="Que pensez vous des choix proposés?" />
-          <DemandeNote nom="orientation" label="Que pensez vous de la qualité de l'orientation dans l'enceinte du bâtiment?" />
-          <IonItem color="secondary" key="prenom">
-            <IonLabel position="stacked">Votre Prénom : </IonLabel>
-            <IonInput name="prenom" type="text" placeholder="Prénom"></IonInput>
-          </IonItem>
-          <IonItem color="secondary" key="nom">
-            <IonLabel position="stacked">Votre Nom : </IonLabel>
-            <IonInput name="nom" type="text" placeholder="Nom"></IonInput>
-          </IonItem>
-          <IonItem color="secondary" key="email">
-            <IonLabel position="stacked">Votre email : </IonLabel>
-            <IonInput name="mail" type="email" placeholder="email"></IonInput>
-          </IonItem>
-          <IonItem key="Submit" color="secondary">
-            <IonButton size="default" onClick={() => { checkForm(document.querySelectorAll("ion-input, ion-radio-group, ion-textarea")) }} type="submit">Envoyer</IonButton>
-          </IonItem>
-        </IonList>
+      <TestSwiper/>
+      {/* <IonSlides options={slideOpts} pager={true} className="questionnaire">
+          <DemandeNote slider={document.querySelector("ion-slides")} nom="accueil" label="Que pensez vous de la qualité de l'accueil?" />
+          <DemandeNote slider={document.querySelector("ion-slides")} nom="choix" label="Que pensez vous des choix proposés?" />
+          <DemandeNote slider={document.querySelector("ion-slides")} nom="orientation" label="Que pensez vous de la qualité de l'orientation dans l'enceinte du bâtiment?" />
+      </IonSlides>         */}
+      {/* <IonItem color="secondary" key="prenom">
+          <IonLabel position="stacked">Votre Prénom : </IonLabel>
+          <IonInput name="prenom" type="text" placeholder="Prénom"></IonInput>
+        </IonItem>
+        <IonItem color="secondary" key="nom">
+          <IonLabel position="stacked">Votre Nom : </IonLabel>
+          <IonInput name="nom" type="text" placeholder="Nom"></IonInput>
+        </IonItem>
+        <IonItem color="secondary" key="email">
+          <IonLabel position="stacked">Votre email : </IonLabel>
+          <IonInput name="mail" type="email" placeholder="email"></IonInput>
+        </IonItem>
+        <IonItem key="Submit" color="secondary">
+          <IonButton size="default" type="submit">Envoyer</IonButton>
+        </IonItem> */}
         <IonToast message="Merci de remplir tout les champs" duration={2000} onDidDismiss={() => {setIsOpen(false)}} cssClass="errors" isOpen={isOpen} />
         <IonModal showBackdrop={false} cssClass="thanks" isOpen={thankModal}>
           <IonItem lines="none">
