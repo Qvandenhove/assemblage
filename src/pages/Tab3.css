@@ -74,10 +74,6 @@ ion-grid.slide{
     height: 90%;
 }
 
-.swiper-slide{
-    background: var(--ion-color-primary)
-}
-
 /* Les avis de la question */
 
 ion-col.note{
