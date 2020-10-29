@@ -20,7 +20,15 @@ const DemandeNote:React.FC<demandeNoteProps> = ({nom, label, slider}) =>{
                                 <IonLabel className="question ion-text-wrap" position="stacked">{label}</IonLabel>
                             </IonCol>
                         </IonRow>
-                            <IonRadioGroup allowEmptySelection={true} name={`${nom}Note`}>
+                            <IonRadioGroup onIonChange={(e) => {
+                                if(e.detail.value){
+                                    setTimeout(() => {
+                                        document.querySelector(".swiper-slide-active").classList.remove("swiper-slide-active")}, 180)
+                                        setTimeout(() =>{
+                                            slider.slideNext()
+                                        }, 200)
+                                }
+                            }} allowEmptySelection={true} name={`${nom}Note`}>
                                 <IonRow className="notes" color="secondary">
                                 {notes.map((note, index) => {return (
                                 <IonCol className="note" key={index} color="secondary">
@@ -28,12 +36,7 @@ const DemandeNote:React.FC<demandeNoteProps> = ({nom, label, slider}) =>{
                                         <IonLabel className="reponse" position="fixed">
                                             <IonIcon className="feedback" icon={note} />
                                         </IonLabel>
-                                        <IonRadio onClick={() => {
-                                            setTimeout(() => {document.querySelector(".swiper-slide-active").classList.remove("swiper-slide-active")}, 180)
-                                            setTimeout(() =>{
-                                                slider.slideNext()
-                                            }, 200)
-                                        }} slot="start" value={index} name={`${nom}Note`} />
+                                        <IonRadio slot="start" value={index} name={`${nom}Note`} />
                                     </IonItem>
 
                                 </IonCol>)

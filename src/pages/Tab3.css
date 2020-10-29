@@ -53,6 +53,41 @@ ion-item.item-radio-checked ion-label ion-icon.feedback{
     color: var(--ion-color-secondary);
 }
 
+/* Sélection d'une option */
+
+/* Transition */
+
+ion-col.note ion-item{
+    transition: --ion-color-base .5s linear 0s;
+    transition:  background .5s linear 0s
+
+}
+
+ion-col.note ion-item ion-radio{
+    transition: --color .5s linear 0s
+}
+
+ion-col.note ion-item ion-label ion-icon.feedback{
+    transition: color .5s linear 0s
+}
+
+ion-col.note ion-item:hover{
+    transition: --ion-color-base .5s linear 0s;
+    transition:  background .5s linear 0s;
+    --ion-color-base: transparent!important;
+    background: var(--ion-color-primary)!important;
+}
+
+ion-col.note ion-item:hover ion-radio{
+    transition: --color .5s linear 0s;
+    --color: var(--ion-color-secondary);
+}
+
+ion-col.note ion-item:hover ion-label ion-icon.feedback{
+    transition: color .5s linear 0s;
+    color: var(--ion-color-secondary);
+}
+
 /* Une question */
 ion-label.question{
     max-width: unset!important;
@@ -113,21 +148,6 @@ ion-button.back{
     width: 80px;
 }
 
-/* Modal de remerciement */
-ion-modal ion-button{
-    width: 60px;
-    height: 60px;
-}
-
-ion-modal.errors ion-item{
-    display: flex;
-    justify-content: space-between;
-}
-
-ion-icon.closeModal{
-    font-size: 4rem;
-}
-
 /* Labels */
 ion-label{
     overflow: visible!important;
@@ -142,3 +162,17 @@ ion-label.commentaire{
     font-size: 1.2rem!important;
 }
 
+/* Modal de remerciement */
+ion-modal ion-button{
+    width: 60px;
+    height: 60px;
+}
+
+ion-modal.errors ion-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+ion-icon.closeModal{
+    font-size: 4rem;
+}

@@ -58,10 +58,10 @@ const TestSwiper:React.FC = () => {
                     </IonRow>
                     <IonRow class="ion-justify-content-around">
                         <IonCol size="3">
-                            <IonButton color="success">Confirmer</IonButton>
+                            <IonButton onClick={() => {slider.slidePrev()}} fill="outline">Retour</IonButton>
                         </IonCol>
                         <IonCol size="3">
-                            <IonButton onClick={() => {slider.slidePrev()}} color="danger">Retour</IonButton>
+                            <IonButton>Confirmer</IonButton>
                         </IonCol>
                     </IonRow>
                 </IonGrid>
