@@ -74,6 +74,14 @@ ion-grid.slide{
     height: 90%;
 }
 
+.swiper-slide{
+    visibility: hidden;
+}
+
+.swiper-slide-active{
+    visibility: visible;
+}
+
 /* Les avis de la question */
 
 ion-col.note{

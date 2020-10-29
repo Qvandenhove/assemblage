@@ -29,7 +29,10 @@ const DemandeNote:React.FC<demandeNoteProps> = ({nom, label, slider}) =>{
                                             <IonIcon className="feedback" icon={note} />
                                         </IonLabel>
                                         <IonRadio onClick={() => {
-                                            setTimeout(() =>{slider.slideNext()}, 200)
+                                            setTimeout(() => {document.querySelector(".swiper-slide-active").classList.remove("swiper-slide-active")}, 180)
+                                            setTimeout(() =>{
+                                                slider.slideNext()
+                                            }, 200)
                                         }} slot="start" value={index} name={`${nom}Note`} />
                                     </IonItem>
 
