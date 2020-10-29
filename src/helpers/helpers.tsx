@@ -1,5 +1,4 @@
 import firebase from "firebase"
-import {Chart} from 'chart.js'
 import { AStarFinder, Grid } from 'pathfinding'
 import { HTTP } from '@ionic-native/http'
 
@@ -21,38 +20,10 @@ const helpers = {
     async exportDatas(datas:any){
         let new_doc = db.collection("Avis").doc()
         await new_doc.set(datas)
-        document.location.href = "/thanks"
+        console.log("sending")
+        return "done"
     },
-    async getDatas(){
-        let ctx:any = document.querySelector("canvas")?.getContext("2d")
-        console.log(ctx)
-        if(ctx !== undefined){
-            let documentsList = await db.collection('Avis').get()
-            let SatisfactionDatas:any = []
-            documentsList.forEach((documents:any) => {
-                SatisfactionDatas.push(documents.data())
-            })
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['1', '2', '3', '4', '5'],
-                    datasets: [{
-                        label: "avis",
-                        data: [0, 1, 2, 3, 4]
-                    }]
-                },
-                options: {
-                    scales:{
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            })
-        }
-    },
+    
     // Pathfinding
     async createGrid(height:number, length:number, roomsNumber:number){
         const room_length = Math.round(length/roomsNumber)

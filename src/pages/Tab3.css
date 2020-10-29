@@ -109,11 +109,11 @@ ion-grid.slide{
     height: 90%;
 }
 
-.swiper-slide{
+div.swiper-slide{
     visibility: hidden;
 }
 
-.swiper-slide-active{
+div.swiper-slide-active{
     visibility: visible;
 }
 
@@ -142,9 +142,9 @@ ion-icon.back{
 
 ion-button.back{
     position: fixed;
-    bottom: 1%;
+    bottom: 0%;
     left: 1%;
-    height: 40px;
+    height: 70px;
     width: 80px;
 }
 
@@ -163,16 +163,17 @@ ion-label.commentaire{
 }
 
 /* Modal de remerciement */
-ion-modal ion-button{
-    width: 60px;
-    height: 60px;
+ion-modal.thanks{
+    --background: var(--ion-color-primary);
 }
 
-ion-modal.errors ion-item{
-    display: flex;
-    justify-content: space-between;
+ion-item.thanks{
+    font-size: 2rem!important;
 }
 
-ion-icon.closeModal{
+ion-icon.paperPlane{
+    width: 100%;
+    text-align: center;
+    color: white;
     font-size: 4rem;
 }

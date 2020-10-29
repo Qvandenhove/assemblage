@@ -6,10 +6,10 @@ interface demandeNoteProps {
     nom:string
     label:string
     slider:any
+    valueSetter:any
 }
 
-const DemandeNote:React.FC<demandeNoteProps> = ({nom, label, slider}) =>{
-    // const notes = ["Pas du tout satisfait", "Insatisfait", "Moyennement satisfait", "Satisfait", "Complètement satisfait"]
+const DemandeNote:React.FC<demandeNoteProps> = ({nom, label, slider, valueSetter}) =>{
     const notes = [heartDislike, thumbsDown, heartHalf, thumbsUp, heart]
     return(
         <Fragment>
@@ -27,6 +27,7 @@ const DemandeNote:React.FC<demandeNoteProps> = ({nom, label, slider}) =>{
                                         setTimeout(() =>{
                                             slider.slideNext()
                                         }, 200)
+                                        valueSetter(e.detail.value)
                                 }
                             }} allowEmptySelection={true} name={`${nom}Note`}>
                                 <IonRow className="notes" color="secondary">
@@ -36,7 +37,7 @@ const DemandeNote:React.FC<demandeNoteProps> = ({nom, label, slider}) =>{
                                         <IonLabel className="reponse" position="fixed">
                                             <IonIcon className="feedback" icon={note} />
                                         </IonLabel>
-                                        <IonRadio slot="start" value={index} name={`${nom}Note`} />
+                                        <IonRadio slot="start" value={index + 1} name={`${nom}Note`} />
                                     </IonItem>
 
                                 </IonCol>)
@@ -44,26 +45,6 @@ const DemandeNote:React.FC<demandeNoteProps> = ({nom, label, slider}) =>{
                                     </IonRow>
                             </IonRadioGroup>                        
                     </IonGrid>
-                        {/* <IonLabel className="question ion-text-wrap" position="stacked">{label}</IonLabel>
-                        <IonRadioGroup allowEmptySelection={true} name={`${nom}Note`}>
-                            {notes.map((note, index) => {return (
-                            <IonItem key={index} color="secondary">
-                                <IonLabel className="reponse" position="fixed">
-                                    {note}
-                                </IonLabel>
-                                <IonRadio onIonFocus={(e) =>  {
-                                let group = document.querySelector(`ion-radio-group[name=${nom}Note]`)
-                                // let test = group.children[index]
-                                group.children[index].classList.add("selected")
-                                }} onIonBlur={(e) => {console.log("Vous avez retiré votre note")}} slot="start" value={index} name={`${nom}Note`} />
-                                </IonItem>)
-                            })}
-                        </IonRadioGroup> */}
-                        {/* <IonItem color="secondary">
-                            <IonLabel className="commentaire ion-text-wrap" position="stacked">Dites nous en plus sur votre avis.</IonLabel>
-                            <IonTextarea maxlength={255} name={`${nom}Comment`}></IonTextarea>
-                        </IonItem> */}
-            {/* </IonSlide> */}
         </Fragment>
     )
 }
