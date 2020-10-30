@@ -1,3 +1,55 @@
-.centered{
-    margin: auto!important;
+ion-input.contact, ion-textarea.contact{
+    --background: var(--ion-color-primary);
+    border-radius: 0%;
+    --placeholder-color: white;
+}
+
+ion-textarea.contact{
+    height: auto;
+}
+
+ion-label.contact{
+    color: white;
+    font-size: 1.7rem!important;
+}
+
+ion-list.contactForm{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+ion-grid.contactCol1{
+    background: var(--ion-color-secondary);
+    width: 40%;
+}
+
+ion-grid.contactCol2{
+    width: 60%;
+    background: var(--ion-color-secondary)!important;
+}
+
+ion-grid.contactCol2 ion-item{
+    height: 100%!important;
+    background: var(--ion-color-secondary)!important;
+}
+
+ion-input.ion-margin-top, ion-textarea.ion-margin-top{
+    margin-top: 1%!important;
+}
+
+@media all and (min-width: 1200px){
+    ion-input.ion-margin-top, ion-textarea.ion-margin-top{
+        margin-top: 1.4%!important;
+    }
+}
+
+ion-button.sendMessage{
+    width: 40%;
+    margin: auto;
+}
+
+ion-item.sendMessage{
+    display: flex;
+    justify-content: center;
 }

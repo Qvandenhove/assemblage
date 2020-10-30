@@ -87,9 +87,10 @@ const helpers = {
     async sendMail(datas:any){
       HTTP.setDataSerializer("json")
       console.log(datas)
-      HTTP.sendRequest("http://10.162.130.97:80/index.php", {method:"post", data: datas}).then((response) => {
-
-      }).catch((err) => {console.log(err.error)})
+      HTTP.sendRequest("http://10.209.0.210:80/index.php", {method:"post", data: datas}).then((response) => {
+        console.log(response.data)
+        console.log(response.status)
+      }).catch((err) => {console.log(err)})
     }
 }
 

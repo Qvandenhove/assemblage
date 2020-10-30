@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonItem, IonToast, IonModal, IonSlides, IonIcon, IonGrid, IonRow, IonCol, IonImg, IonInput, IonLabel, IonLoading } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonItem, IonToast, IonModal, IonIcon, IonGrid, IonRow, IonCol, IonLoading } from '@ionic/react';
 import SwiperCore, { Navigation, Pagination, EffectCube } from 'swiper';
 import React, { useState } from 'react';
 import { paperPlane } from "ionicons/icons"
@@ -8,19 +8,10 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/effect-cube/effect-cube.scss'
 import './Tab3.css';
 import Questionnaire from '../components/questionnaire';
-import App from '../App';
 
 const Tab3: React.FC = () => {
   
   SwiperCore.use([Navigation, Pagination, EffectCube])
-  const slideOpts = {
-    slidesPerView: 1,
-    allowTouchMove:false,
-    cubeEffect : {
-      shadow: false,
-      slideShadow: true
-    }
-  }
   //  statut d'ouverture des modals et taosts
   const [isOpen, setIsOpen] = useState(false)
   const [sendingState, setsendingState] = useState("awaiting")
@@ -35,8 +26,8 @@ const Tab3: React.FC = () => {
       <IonContent fullscreen>
       <Questionnaire sendingStateSetter={setsendingState}/>
         <IonToast message="Merci de remplir tout les champs" duration={2000} onDidDismiss={() => {setIsOpen(false)}} cssClass="errors" isOpen={isOpen} />
-        {sendingState == "sending" ? <IonLoading showBackdrop={false} message="Nous réceptionnons vos données veuillez patienter" isOpen={sendingState == "sending"} /> :(
-          <IonModal backdropDismiss={false} showBackdrop={false} cssClass="thanks" isOpen={sendingState == "done"}>
+        {sendingState === "sending" ? <IonLoading showBackdrop={false} message="Nous réceptionnons vos données veuillez patienter" isOpen={sendingState === "sending"} /> :(
+          <IonModal backdropDismiss={false} showBackdrop={false} cssClass="thanks" isOpen={sendingState === "done"}>
           <IonGrid color="primary">
             <IonRow color="primary">
               <IonCol color="primary">

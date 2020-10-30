@@ -1,7 +1,8 @@
-import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTextarea, IonTitle, IonToast, IonToolbar } from '@ionic/react'
-// import './Tab4.css'
+import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonLabel, IonList, IonPage, IonRow, IonTextarea, IonTitle, IonToast, IonToolbar, isPlatform } from '@ionic/react'
+import './Tab4.css'
 import React, { useState } from 'react'
 import helpers from '../helpers/helpers'
+import { send } from 'ionicons/icons'
 
 const Tab4:React.FC = () => {
     const [formError, setFormError] = useState(false)
@@ -49,7 +50,7 @@ const Tab4:React.FC = () => {
             helpers.sendMail(datas)
           }
     }
-
+    let textRows = isPlatform('android') ? 6 : 5
     return (
         <IonPage>
           <IonHeader>
@@ -63,29 +64,45 @@ const Tab4:React.FC = () => {
                 <IonTitle size="large">Vous souhaitez prendre contact avec nous ?</IonTitle>
               </IonToolbar>
             </IonHeader>
-            <IonList>
-                    <IonItem color="secondary" key="prenom">
-                        <IonLabel position="stacked">Votre Prénom : </IonLabel>
-                        <IonInput required name="prenom" type="text" placeholder="Prénom"></IonInput>
-                    </IonItem>
-                    <IonItem color="secondary" key="nom">
-                        <IonLabel position="stacked">Votre Nom : </IonLabel>
-                        <IonInput name="nom" required type="text" placeholder="Nom"></IonInput>
-                    </IonItem>
-                    <IonItem color="secondary" key="email">
-                        <IonLabel position="stacked">Votre email : </IonLabel>
-                        <IonInput name="mail" required type="email" placeholder="email"></IonInput>
-                    </IonItem>
-                    <IonItem color="secondary" key="sujet">
-                        <IonLabel position="stacked">De quoi voulez-vous nous parler : </IonLabel>
-                        <IonInput name="sujet" required type="text" placeholder="Sujet"></IonInput>
-                    </IonItem>
-                    <IonItem color="secondary" key="message">
-                        <IonLabel position="stacked">Votre message : </IonLabel>
-                        <IonTextarea required name="message" placeholder="Message" />
-                    </IonItem>
+            <IonList class="ion-no-padding contactForm">
+              <IonGrid class="ion-no-padding contactCol1">
+                <IonRow class="ion-margin-top ion-justify-content-center" color="secondary" key="prenom">
+                  <IonCol size="11">
+                    <IonLabel className="contact" position="stacked">Votre Prénom : </IonLabel>
+                    <IonInput className="contact ion-margin-top" required name="prenom" type="text" placeholder="Prénom"></IonInput>
+                  </IonCol>
+                </IonRow>
+                <IonRow class="ion-margin-top ion-justify-content-center">
+                  <IonCol size="11">
+                    <IonLabel className="contact" position="stacked">Votre Nom : </IonLabel>
+                    <IonInput className="contact ion-margin-top" name="nom" required type="text" placeholder="Nom"></IonInput>
+                  </IonCol>
+                </IonRow>
+                <IonRow className="ion-margin-top ion-justify-content-center" color="secondary" key="email">
+                  <IonCol size="11">
+                    <IonLabel className="contact" position="stacked">Votre email : </IonLabel>
+                    <IonInput className="contact ion-margin-top" name="mail" required type="email" placeholder="Email"></IonInput>
+                  </IonCol>
+                </IonRow>
+              </IonGrid>
+              <IonGrid color="secondary" className="contactCol2" class="ion-no-padding">
+                <IonRow className="ion-margin-top" color="secondary" key="sujet">
+                  <IonCol size="11">
+                    <IonLabel className="contact" position="stacked">De quoi voulez-vous nous parler : </IonLabel>
+                    <IonInput className="contact ion-margin-top" name="sujet" required type="text" placeholder="Sujet"></IonInput>
+                  </IonCol>
+                </IonRow>
+                <IonRow className="ion-margin-top ion-align-items-center">
+                  <IonCol size="9">
+                      <IonLabel className="contact" position="stacked">Votre message : </IonLabel>
+                      <IonTextarea rows={textRows} className="contact ion-margin-top" required name="message" placeholder="Message" />
+                  </IonCol>
+                  <IonCol className="ion-margin-top ion-text-center" color="secondary" size="3">
+                  <IonButton onClick={submit} type="submit" className="ion-margin-top sendMessage" shape="round"><IonIcon icon={send} /></IonButton>
+                </IonCol>
+                </IonRow>
+              </IonGrid>
             </IonList>
-            <IonButton onClick={submit} type="submit" className="centered">Envoyer</IonButton>
             <IonToast color="danger" message="Merci de remplir tout les champs" duration={2000} isOpen={formError} onDidDismiss={() => {setFormError(false)}} />
             <IonToast color="success" message="Votre message à été envoyé" duration={2000} isOpen={thanks} onDidDismiss={() => {setThanks(false)}} />
           </IonContent>

@@ -1,4 +1,4 @@
-import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonTextarea, IonSlide, IonCol, IonGrid, IonRow, IonIcon } from '@ionic/react'
+import { IonItem, IonLabel, IonRadioGroup, IonRadio, IonCol, IonGrid, IonRow, IonIcon } from '@ionic/react'
 import { heart, heartHalf, heartDislike, thumbsDown, thumbsUp } from 'ionicons/icons'
 import React, { Fragment } from 'react'
 
